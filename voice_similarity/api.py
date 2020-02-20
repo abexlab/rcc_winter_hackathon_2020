@@ -2,6 +2,7 @@
 import os
 import urllib.error
 import urllib.request
+import librosa, rwave
 from flask import Flask, jsonify, abort, make_response, request
 from engine import comparison
 
@@ -22,6 +23,14 @@ def webDL(link, file, mkdir_ok=True):
         print(e)
 
 
+def wav_build(file):
+    wave, fs = librosa.load(file)
+    wave *= 10000
+    wave, _  = rwave.convert_fs(wave, fs, 8000)
+
+    rwave.write_wave(file, wave, 8000)
+
+
 api = Flask(__name__)
 
 
@@ -36,6 +45,7 @@ def audio_similarity():
     correct_file = 'audio/%s.wav' % char_id
     # 録音されたファイルをダウンロード
     webDL(wav_url, 'tmp/source.wav')
+    wav_build('tmp/source.wav')
 
     # 類似度を算出
     score = comparison(correct_file, 'tmp/source.wav')
