@@ -1,0 +1,8 @@
+version: '3'
+services:
+    nginx:
+        image: 'nginx:latest'
+        ports:
+            - 3001:80
+        volumes:
+            - "./audio:/usr/share/nginx/html"
