@@ -3,3 +3,4 @@ voice_similarity/tmp/*.wav
 voice_similarity/audio/*.wav
 voice_similarity/audio/*/*.wav
 voice_similarity/__pycache__
+voice_similarity/lib/*/__pycache__
