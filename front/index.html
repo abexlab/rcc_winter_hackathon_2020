@@ -1,0 +1,79 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>title</title>
+  <script type="text/javascript" src="scTrans.js"></script>
+</head>
+
+<body>
+  <section id="top">
+    <div class="forSmaFo">
+      <img class="logo" src="img/logo.png" />
+      <button class="topB" onclick="showSec('charSelector');">
+        <div class="bImg">
+          <img src="img/orochimaru.png" />
+        </div>
+        <div class="bStr">
+          挑戦
+        </div>
+      </button>
+      <button class="topB" onclick="showSec('ranking');">
+        <div class="bImg">
+          <img src="img/orochimaru.png" />
+        </div>
+        <div class="bStr">
+          ランキング
+        </div>
+      </button>
+
+
+    </div>
+  </section>
+
+  <section id="charSelector">
+    <div class="forSmaFo">
+      <div class="backB" onclick="showSec('top')"></div>
+      <h2>キャラクター選択</h2>
+      <script type="text/javascript" src="charCtrler.js"></script>
+
+    </div>
+  </section>
+
+  <section id="recording">
+    <div class="forSmaFo">
+      <div class="backB" onclick="showSec('charSelector')"></div>
+      <h2>録音</h2>
+      <div class="recMic">
+        <p id="charNameP">Char Name</p>
+        <img class="mic" src="img/mic.png" />
+        
+        <p id="wordsP">「Words...」</p>
+        <p onclick="showSec('result')">[仮]</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="result">
+    <div class="forSmaFo">
+      <div class="backB" onclick="showSec('charSelector')">仮仮仮仮仮仮仮仮仮</div>
+      <h2>結果</h2>
+    </div>
+  </section>
+
+  <section id="ranking">
+    <div class="forSmaFo">
+      
+      <div class="backB" onclick="showSec('top')"></div>
+      <h2>ランキング</h2>
+    </div>
+  </section>
+</body>
+
+</html>
