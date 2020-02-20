@@ -6,7 +6,7 @@ from engine import comparison
 api = Flask(__name__)
 
 
-@api.route('/audio/calc', methods=['POST'])
+@api.route('/voice/calc', methods=['POST'])
 def audio_similarity():
     ## -----*---- 音声の類似度を算出 -----*----- ##
     file = 'audio/%s.wav' % request.form['name']
@@ -19,7 +19,7 @@ def audio_similarity():
     return make_response(jsonify(result))
 
 
-@api.route('/audio/delete', methods=['DELETE'])
+@api.route('/voice/delete', methods=['DELETE'])
 def audio_delete():
     ## -----*---- キャラクターを削除 -----*----- ##
     file = 'audio/%s.wav' % request.form['character']
