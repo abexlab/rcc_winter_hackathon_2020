@@ -1,7 +1,26 @@
 # -*- coding: utf-8 -*-
 import os
+import urllib.error
+import urllib.request
 from flask import Flask, jsonify, abort, make_response, request
 from engine import comparison
+
+
+def webDL(link, file, mkdir_ok=True):
+    ## -----*----- Webからダウンロード -----*----- ##
+    try:
+        with urllib.request.urlopen(link) as web_file:
+            data = web_file.read()
+
+            if mkdir_ok:
+                    os.makedirs(os.path.dirname(file), exist_ok=True)
+
+            with open(file, mode='wb') as local_file:
+                local_file.write(data)
+
+    except urllib.error.URLError as e:
+        print(e)
+
 
 api = Flask(__name__)
 
@@ -9,15 +28,19 @@ api = Flask(__name__)
 @api.route('/voice/calc', methods=['GET'])
 def audio_similarity():
     ## -----*---- 音声の類似度を算出 -----*----- ##
-    file = 'audio/%s.wav' % request.form['name']
-    wav_link = request.form['url']
-    dl_file = ''
+    # パラメータ取得
+    char_id = request.args.get('char_id')
+    wav_url = request.args.get('url')
+
+    # 比較対象の音声ファイル
+    correct_file = 'audio/%s.wav' % char_id
+    # 録音されたファイルをダウンロード
+    webDL(wav_url, 'tmp/source.wav')
 
     # 類似度を算出
-    score = comparison(file, dl_file)
+    score = comparison(correct_file, 'tmp/source.wav')
 
-    result = {'score': score}
-    return make_response(jsonify(result))
+    return make_response(jsonify({'score': score}))
 
 
 @api.errorhandler(404)
