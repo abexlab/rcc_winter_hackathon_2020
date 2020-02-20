@@ -24,6 +24,7 @@ def webDL(link, file, mkdir_ok=True):
 
 
 def wav_build(file):
+    ## -----*----- wavをビルド -----*----- ##
     wave, fs = librosa.load(file)
     wave *= 10000
     wave, _  = rwave.convert_fs(wave, fs, 8000)
