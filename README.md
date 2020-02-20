@@ -1,9 +1,6 @@
 # RCC Winter Hackathon in 2020
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-
-Group 2 source management
-
 ![](img/RCC_Hackathon.jpeg)
 
 ## Description
@@ -19,4 +16,5 @@ $ cd rcc_winter_hackathon_2020
 
 
 ## Author
+- キットカット☆キットカット
 - Tatsuya Abe
