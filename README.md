@@ -1,7 +1,7 @@
 # RCC Winter Hackathon in 2020
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-<br>
+<br><br>
 ![](img/RCC_Hackathon.jpeg)
 
 ## Description
